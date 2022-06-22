@@ -1,5 +1,5 @@
 # coinShop!
-
+swagger : http://localhost:8080/swagger-ui/index.html
 mysql database shop으로 생성
 user : root
 password : 1234
@@ -55,7 +55,7 @@ shop database를 한번 지우고 다시 만들어서 애플리케이션을 실�
 
 
 
-swagger : http://localhost:8080/swagger-ui/index.html
+
 ![174814259-39752797-33ed-4854-ad33-17ee34e55263](https://user-images.githubusercontent.com/72008368/174918167-6ab27406-a7d0-463b-844f-08d752b39ef4.png)
 ![174814280-118d93c7-6b02-47e1-b4df-2f5b2ce0db1e](https://user-images.githubusercontent.com/72008368/174918170-5a158339-84ed-491e-8818-70170fcbea52.png)
 ![174814339-1de5c80f-055e-4ff5-b6de-941be298ad27](https://user-images.githubusercontent.com/72008368/174918171-7a432aed-0463-4532-8705-8fe5af93c8b3.png)
