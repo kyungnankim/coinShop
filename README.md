@@ -3,11 +3,11 @@ swagger : http://localhost:8080/swagger-ui/index.html <br/>
 mysql database shop으로 생성<br/>
 user : root<br/>
 password : 1234<br/>
-<br/><br/>
+<br/>
 create database shop default character set utf8 collate utf8_general_ci;<br/>
-<br/><br/>
+<br/>
 유저
-<br/><br/>
+<br/>
 로그인 : root@1234 비밀번호 : root@1234<br/>
 
 회원가입 후 로그인하여 코인을 구매할 수 있게 해줍니다.<br/>
@@ -23,35 +23,35 @@ CartController.java CarService.java 장바구니와 관련된 요청들을 처�
 <br/><br/>
 트러블슈팅<br/>
 1.docker 에서 mysql 문제<br/>
-ERROR] [Entrypoint]: MYSQL_USER="root", MYSQL_PASSWORD cannot be used for the root user
-    Use one of the following to control the root user password:
-    - MYSQL_ROOT_PASSWORD
-    - MYSQL_ALLOW_EMPTY_PASSWORD
-    - MYSQL_RANDOM_ROOT_PASSWORD
+ERROR] [Entrypoint]: MYSQL_USER="root", MYSQL_PASSWORD cannot be used for the root user<br/>
+    Use one of the following to control the root user password:<br/>
+    - MYSQL_ROOT_PASSWORD<br/>
+    - MYSQL_ALLOW_EMPTY_PASSWORD<br/>
+    - MYSQL_RANDOM_ROOT_PASSWORD<br/>
 
-이것의 요점 중 일부는 MYSQL_USER=root가 중복된다는 것입니다. 항상 'root'@'localhost'가 있고 기본적으로 'root'@'%'가 있으며 여기에는 MYSQL_ROOT_PASSWORD(또는 MYSQL_ALLOW_EMPTY_PASSWORD)로 설정된 비밀번호가 있다하여 유저명 변경 후 도커 실행하니 정상적으로 작동했습니다.
+이것의 요점 중 일부는 MYSQL_USER=root가 중복된다는 것입니다. 항상 'root'@'localhost'가 있고 기본적으로 'root'@'%'가 있으며 여기에는 MYSQL_ROOT_PASSWORD(또는 MYSQL_ALLOW_EMPTY_PASSWORD)로 설정된 비밀번호가 있다하여 유저명 변경 후 도커 실행하니 정상적으로 작동했습니다.<br/>
 
-2. DBeaver  MYSQL 접근권한
-docker ps -a
-docker exec -i -t mysql_container bash 접속 후
-docker exec -i -t mysql_shop bash
-root@d2ff3dd67445:/# mysql -u root -p
-로그인 시도
-password : 1234
-로그인 완료!
-mysql > grant all privileges on *.* to 'root'@'%'; 모든 접근권한 허용
-mysql> SHOW DATABASES;
-특별히 
-create user '사용자 이름'@'ip주소' identified by '비밀번호';
-로 특정 사용자를 추가해서 권한과 접근 위치 세분화 가능합니다
+2. DBeaver  MYSQL 접근권한<br/>
+docker ps -a<br/>
+docker exec -i -t mysql_container bash 접속 후<br/>
+docker exec -i -t mysql_shop bash<br/>
+root@d2ff3dd67445:/# mysql -u root -p<br/>
+로그인 시도<br/>
+password : 1234<br/>
+로그인 완료!<br/>
+mysql > grant all privileges on *.* to 'root'@'%'; 모든 접근권한 허용<br/>
+mysql> SHOW DATABASES;<br/>
+특별히 <br/>
+create user '사용자 이름'@'ip주소' identified by '비밀번호';<br/>
+로 특정 사용자를 추가해서 권한과 접근 위치 세분화 가능합니다<br/>
 
-
-3. JPA 엔터티 테이블 생성
-테이블 생성의 경우 브랜치를 이동하면 엔티티와 테이블이 맞지 않아서 제대로 동작하지 않는 경우가 있어,
-mysql workbench로 접속해 
-drop database shop; 
-create database shop default character set utf8 collate utf8_general_ci; 명령어를 이용해서
-shop database를 한번 지우고 다시 만들어서 애플리케이션을 실행했습니다.
+<br/>
+3. JPA 엔터티 테이블 생성<br/>
+테이블 생성의 경우 브랜치를 이동하면 엔티티와 테이블이 맞지 않아서 제대로 동작하지 않는 경우가 있어,<br/>
+mysql workbench로 접속해 <br/>
+drop database shop; <br/>
+create database shop default character set utf8 collate utf8_general_ci; 명령어를 이용해서<br/>
+shop database를 한번 지우고 다시 만들어서 애플리케이션을 실행했습니다.<br/>
 
 
 
