@@ -1,28 +1,28 @@
 # coinShop!
-swagger : http://localhost:8080/swagger-ui/index.html
-mysql database shop으로 생성
-user : root
-password : 1234
-
-create database shop default character set utf8 collate utf8_general_ci;
-
+swagger : http://localhost:8080/swagger-ui/index.html <br/>
+mysql database shop으로 생성<br/>
+user : root<br/>
+password : 1234<br/>
+<br/><br/>
+create database shop default character set utf8 collate utf8_general_ci;<br/>
+<br/><br/>
 유저
+<br/><br/>
+로그인 : root@1234 비밀번호 : root@1234<br/>
 
-로그인 : root@1234 비밀번호 : root@1234
+회원가입 후 로그인하여 코인을 구매할 수 있게 해줍니다.<br/>
 
-회원가입 후 로그인하여 코인을 구매할 수 있게 해줍니다.
-
-maven에서 gradle 라이브러리 변경해서 적용했습니다. Gradle이 Maven보다 설정 내용이 짧아지고 가독성이 좋으며, 의존관계가 복잡한 프로젝트에도 설정하기에 적절하고 상속구조를 이용한 멀티 모듈 구현할 수 있다는 점에 변경해서 적용했습니다.
-
-구성도 
-CartItemDto.java - Cart Class에서 회원 엔티티를 파라미터로 받아 장바구니 엔티티 생성하는 로직 추가
-Cart.java - 장바구니에 담을 상품 엔티티를 생성하는 메소드와 장바구니에 담을 수량을 증가시켜 주는 메소드를 CartItem클래스에 추가
-CartItem.java - 현재 로그인한 회원의 Cart 엔티티를 찾기 위해 CartRepository에 쿼리 메소드 추가
-CartRepository.java - 장바구니에 상품을 담는 로직을 작성하기위해 com.kyungnan.shop.service 패키지 아래에 cartService 클래스 생성
-CartController.java CarService.java 장바구니와 관련된 요청들을 처리하기위해 com.kyungnan.shop.controller 패키지 아래에 CartController 클래스 생성
-
-트러블슈팅
-1.docker 에서 mysql 문제
+maven에서 gradle 라이브러리 변경해서 적용했습니다. Gradle이 Maven보다 설정 내용이 짧아지고 가독성이 좋으며, 의존관계가 복잡한 프로젝트에도 설정하기에 적절하고 상속구조를 이용한 멀티 모듈 구현할 수 있다는 점에 변경해서 적용했습니다.<br/>
+<br/><br/>
+구성도 <br/>
+CartItemDto.java - Cart Class에서 회원 엔티티를 파라미터로 받아 장바구니 엔티티 생성하는 로직 추가<br/>
+Cart.java - 장바구니에 담을 상품 엔티티를 생성하는 메소드와 장바구니에 담을 수량을 증가시켜 주는 메소드를 CartItem클래스에 추가<br/>
+CartItem.java - 현재 로그인한 회원의 Cart 엔티티를 찾기 위해 CartRepository에 쿼리 메소드 추가<br/>
+CartRepository.java - 장바구니에 상품을 담는 로직을 작성하기위해 com.kyungnan.shop.service 패키지 아래에 cartService 클래스 생성<br/>
+CartController.java CarService.java 장바구니와 관련된 요청들을 처리하기위해 com.kyungnan.shop.controller 패키지 아래에 CartController 클래스 생성<br/>
+<br/><br/>
+트러블슈팅<br/>
+1.docker 에서 mysql 문제<br/>
 ERROR] [Entrypoint]: MYSQL_USER="root", MYSQL_PASSWORD cannot be used for the root user
     Use one of the following to control the root user password:
     - MYSQL_ROOT_PASSWORD
